@@ -35,6 +35,7 @@ public class HMIButtonViewModel : HMIControlViewModel
         }
     }
 
+
     public RelayCommand ClickedCmd { get => _clickedCmd ??= new RelayCommand(OnClicked); }
     public RelayCommand PressedCmd { get => _pressedCmd ??= new RelayCommand(OnPressed); }
     public RelayCommand ReleasedCmd { get => _releasedCmd ??= new RelayCommand(OnReleased); }

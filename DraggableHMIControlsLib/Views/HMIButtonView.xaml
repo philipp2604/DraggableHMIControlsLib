@@ -3,8 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:DraggableHMIControlsLib.Converters"
              xmlns:local="clr-namespace:DraggableHMIControlsLib.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Button x:Name="button" Content="{Binding Text}" />
+             d:DesignHeight="150" d:DesignWidth="250">
+
+    <Button x:Name="button" Width="{Binding Width}" Height="{Binding Height}" Foreground="{Binding ForegroundBrush}" Background="{Binding BackgroundBrush}" BorderBrush="{Binding BorderBrush}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <TextBlock TextWrapping="Wrap" Text="{Binding Text}" FontSize="{Binding FontSize}" />
+        <Button.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="{Binding CornerRadius}"/>
+            </Style>
+        </Button.Resources>
+    </Button>
+
 </local:HMIControlView>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using static DraggableHMIControlsLib.Models.ControlActions;
 
 namespace DraggableHMIControlsLib.ViewModels;
@@ -26,12 +27,12 @@ public abstract class HMIControlViewModel : ObservableObject
     public HMIControl ControlModel { get; set; }
     public double Height
     {
-        get => ControlModel.Height;
+        get => ControlModel.Style.Height;
         set
         {
-            if (value != ControlModel.Height)
+            if (value != ControlModel.Style.Height)
             {
-                ControlModel.Height = value;
+                ControlModel.Style.Height = value;
                 NotifyPropertyChanged(nameof(Height));
             }
         }
@@ -39,13 +40,77 @@ public abstract class HMIControlViewModel : ObservableObject
 
     public double Width
     {
-        get => ControlModel.Width;
+        get => ControlModel.Style.Width;
         set
         {
-            if (value != ControlModel.Width)
+            if (value != ControlModel.Style.Width)
             {
-                ControlModel.Width = value;
+                ControlModel.Style.Width = value;
                 NotifyPropertyChanged(nameof(Width));
+            }
+        }
+    }
+
+    public Brush ForegroundBrush
+    {
+        get => ControlModel.Style.ForegroundBrush;
+        set
+        {
+            if(value != ControlModel.Style.ForegroundBrush)
+            {
+                ControlModel.Style.ForegroundBrush = value;
+                NotifyPropertyChanged(nameof(ForegroundBrush));
+            }
+        }
+    }
+    public Brush BackgroundBrush
+    {
+        get => ControlModel.Style.BackgroundBrush;
+        set
+        {
+            if (value != ControlModel.Style.BackgroundBrush)
+            {
+                ControlModel.Style.BackgroundBrush = value;
+                NotifyPropertyChanged(nameof(BackgroundBrush));
+            }
+        }
+    }
+
+    public Brush BorderBrush
+    {
+        get => ControlModel.Style.BorderBrush;
+        set
+        {
+            if (value != ControlModel.Style.BorderBrush)
+            {
+                ControlModel.Style.BorderBrush = value;
+                NotifyPropertyChanged(nameof(BorderBrush));
+            }
+        }
+    }
+
+    public double CornerRadius
+    {
+        get => ControlModel.Style.CornerRadius;
+        set
+        {
+            if (value != ControlModel.Style.CornerRadius)
+            {
+                ControlModel.Style.CornerRadius = value;
+                NotifyPropertyChanged(nameof(CornerRadius));
+            }
+        }
+    }
+
+    public double FontSize
+    {
+        get => ControlModel.Style.FontSize;
+        set
+        {
+            if (value != ControlModel.Style.FontSize)
+            {
+                ControlModel.Style.FontSize = value;
+                NotifyPropertyChanged(nameof(FontSize));
             }
         }
     }

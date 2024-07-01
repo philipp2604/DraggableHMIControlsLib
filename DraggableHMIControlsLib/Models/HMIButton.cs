@@ -1,24 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using static DraggableHMIControlsLib.Models.ControlActions;
 
 namespace DraggableHMIControlsLib.Models;
 
 public class HMIButton : HMIControl
 {
-    public HMIButton(string name, string text = "", double width = 150, double height = 50) : base(name)
+    public HMIButton(string name, string text = "", HMIControlStyle? buttonStyle = null) : base(name)
     {
         Text = text;
-        Width = width;
-        Height = height;
 
         ClickedActions = new List<(ActionType actionType, int tagId, object param)>();
         PressedActions = new List<(ActionType actionType, int tagId, object param)>();
         ReleasedActions = new List<(ActionType actionType, int tagId, object param)>();
+
+        Style = buttonStyle ?? new HMIControlStyle(50, 150,
+            new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#000000")),
+            new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#DDDDDD")),
+            new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#707070")));
     }
 
     public string Text { get; set; }
@@ -39,4 +44,5 @@ public class HMIButton : HMIControl
     public List<(ActionType actionType, int tagId, object param)> ClickedActions { get; set; }
     public List<(ActionType actionType, int tagId, object param)> PressedActions { get; set; }
     public List<(ActionType actionType, int tagId, object param)> ReleasedActions { get; set; }
+
 }
