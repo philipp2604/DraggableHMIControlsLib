@@ -115,6 +115,19 @@ public abstract class HMIControlViewModel : ObservableObject
         }
     }
 
+    public FontFamily FontFamily
+    {
+        get => ControlModel.Style.FontFamily;
+        set
+        {
+            if(value !=  ControlModel.Style.FontFamily)
+            {
+                ControlModel.Style.FontFamily = value;
+                NotifyPropertyChanged(nameof(FontFamily));
+            }
+        }
+    }
+
     public void EditMode(bool enable) => EditModeChange?.Invoke(enable);
     public void SaveLayout() => SaveUI?.Invoke();
 
