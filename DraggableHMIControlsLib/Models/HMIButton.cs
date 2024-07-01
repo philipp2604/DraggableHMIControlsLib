@@ -20,13 +20,17 @@ public class HMIButton : HMIControl
         PressedActions = new List<(ActionType actionType, int tagId, object param)>();
         ReleasedActions = new List<(ActionType actionType, int tagId, object param)>();
 
-        Style = buttonStyle ?? new HMIControlStyle(50, 150,
+        Style = buttonStyle ?? new HMIControlStyle(
+            50,                                                                                                                     //Height
+            150,                                                                                                                    //Width
             new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#000000")),      //Foreground brush
             new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#DDDDDD")),      //Background brush
             new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#707070")),      //Border brush
             0,                                                                                                                      //Corner radius
             12,                                                                                                                     //Font size
-            new FontFamily("Segeo UI"));                                                                                            //Font family
+            new FontFamily("Segeo UI"),                                                                                             //Font family
+            Visibility.Visible                                                                                                      //Visibility
+            );                                                                                                    
     }
 
     public string Text { get; set; }

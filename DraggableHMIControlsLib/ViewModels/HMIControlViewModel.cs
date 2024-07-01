@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using static DraggableHMIControlsLib.Models.ControlActions;
 
@@ -128,6 +129,19 @@ public abstract class HMIControlViewModel : ObservableObject
         }
     }
 
+    public Visibility Visibility
+    {
+        get => ControlModel.Style.Visibility;
+        set
+        {
+            if(value != ControlModel.Style.Visibility)
+            {
+                ControlModel.Style.Visibility = value;
+                NotifyPropertyChanged(nameof(Visibility));
+            }
+        }
+    }
+
     public void EditMode(bool enable) => EditModeChange?.Invoke(enable);
     public void SaveLayout() => SaveUI?.Invoke();
 
@@ -163,5 +177,10 @@ public abstract class HMIControlViewModel : ObservableObject
                 _uiTagService.SetVariable(payload.tagId, payload.param);
                 break;
         }
+    }
+
+    public void OnTagValuesUpdated()
+    {
+
     }
 }

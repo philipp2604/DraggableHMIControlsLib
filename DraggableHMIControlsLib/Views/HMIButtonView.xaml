@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="250">
 
-    <Button x:Name="button" Width="{Binding Width}" Height="{Binding Height}" Foreground="{Binding ForegroundBrush}" Background="{Binding BackgroundBrush}" BorderBrush="{Binding BorderBrush}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-        <TextBlock TextWrapping="Wrap" Text="{Binding Text}" FontSize="{Binding FontSize}" FontFamily="{Binding FontFamily}" />
+    <Button x:Name="button" Width="{Binding Width}" Height="{Binding Height}" Foreground="{Binding ForegroundBrush}" Background="{Binding BackgroundBrush}" BorderBrush="{Binding BorderBrush}" Visibility="{Binding Visibility}">
+        <TextBlock TextWrapping="Wrap" Text="{Binding Text}" FontSize="{Binding FontSize}" FontFamily="{Binding FontFamily}"/>
         <Button.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="{Binding CornerRadius}"/>

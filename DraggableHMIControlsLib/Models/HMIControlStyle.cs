@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace DraggableHMIControlsLib.Models
 {
     public class HMIControlStyle
     {
-        public HMIControlStyle(double height, double width, Brush foregroundBrush, Brush backgroundBrush, Brush borderBrush, double cornerRadius, double fontSize, FontFamily fontFamily)
+        public HMIControlStyle(double height, double width, Brush foregroundBrush, Brush backgroundBrush, Brush borderBrush, double cornerRadius, double fontSize, FontFamily fontFamily, Visibility visibility)
         {
             Height = height;
             Width = width;
@@ -19,6 +20,7 @@ namespace DraggableHMIControlsLib.Models
             CornerRadius = cornerRadius;
             FontSize = fontSize;
             FontFamily = fontFamily;
+            Visibility = visibility;
         }
 
         public double Height { get; set; }
@@ -29,5 +31,6 @@ namespace DraggableHMIControlsLib.Models
         public double CornerRadius { get; set; }
         public double FontSize { get; set; }
         public FontFamily FontFamily { get; set; }
+        public Visibility Visibility { get; set; }
     }
 }

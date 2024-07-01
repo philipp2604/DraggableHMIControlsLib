@@ -13,7 +13,7 @@ public abstract class HMIControl
     public HMIControl(string name)
     {
         Name = name;
-        Style = new HMIControlStyle(0, 0, new SolidColorBrush(), new SolidColorBrush(), new SolidColorBrush(), 0, 0, new FontFamily("Arial"));
+        Style = new HMIControlStyle(0, 0, new SolidColorBrush(), new SolidColorBrush(), new SolidColorBrush(), 0, 0, new FontFamily("Arial"), Visibility.Visible);
     }
 
     public int Id { get; set; }
