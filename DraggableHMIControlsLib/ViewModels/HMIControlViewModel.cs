@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using static DraggableHMIControlsLib.Models.ControlActions;
+using static DraggableHMIControlsLib.Models.ControlAction;
+using static DraggableHMIControlsLib.Models.ControlStyleEvent;
 
 namespace DraggableHMIControlsLib.ViewModels;
 
@@ -179,8 +180,27 @@ public abstract class HMIControlViewModel : ObservableObject
         }
     }
 
-    public void OnTagValuesUpdated()
+    public virtual void OnTagValuesUpdated()
     {
+        foreach(var item in ControlModel.StyleEvents)
+        {
+            object? tagValue = _uiTagService.GetTagValue(item.tagId);
+            if(tagValue == null) continue;
 
+            switch(item.styleEventType)
+            {
+                case StyleEventType.ConditionalVisibility:
+                    if(tagValue.GetType() == item.tagValue.GetType())
+                    {
+                        if(tagValue.Equals(item.tagValue))
+                        {
+                            if (item.param != null && item.param.GetType() == typeof(Visibility))
+                                ControlModel.Style.Visibility = (Visibility)item.param;
+                            NotifyPropertyChanged(nameof(Visibility));
+                        }
+                    }
+                    break;
+            }
+        }
     }
 }

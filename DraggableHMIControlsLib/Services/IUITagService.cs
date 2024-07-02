@@ -23,4 +23,6 @@ public interface IUITagService
     public void IncrementVariable(int tagId);
     public void DecrementVariable(int tagId);
     public void SetVariable(int tagId, object value);
+
+    public object? GetTagValue(int tagId);
 }
