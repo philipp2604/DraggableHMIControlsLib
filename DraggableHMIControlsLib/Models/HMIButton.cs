@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using static DraggableHMIControlsLib.Models.ControlActions;
+using static DraggableHMIControlsLib.Models.ControlAction;
 
 namespace DraggableHMIControlsLib.Models;
 

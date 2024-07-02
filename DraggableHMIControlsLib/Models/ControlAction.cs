@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DraggableHMIControlsLib.Models;
 
-public static class ControlActions
+public static class ControlAction
 {
     public enum ActionType
     {
