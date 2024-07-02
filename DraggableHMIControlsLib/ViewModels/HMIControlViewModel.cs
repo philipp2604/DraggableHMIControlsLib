@@ -202,6 +202,34 @@ public abstract class HMIControlViewModel : ObservableObject
                         }
                     }
                     break;
+
+                case StyleEventType.ConditionalStyling:
+                {
+                    if (tagValue.GetType() == item.tagValue.GetType())
+                    {
+                        if (tagValue.Equals(item.tagValue))
+                        {
+                            if (item.param != null && item.param.GetType() == typeof(Tuple<Brush?, Brush?>))
+                            {
+                                var foregroundBrush = ((Tuple<Brush, Brush>)item.param).Item1;
+                                var backgroundBrush = ((Tuple<Brush, Brush>)item.param).Item2;
+
+                                if (foregroundBrush != null)
+                                {
+                                    ControlModel.Style.ForegroundBrush = foregroundBrush;
+                                    NotifyPropertyChanged(nameof(ForegroundBrush));
+                                }
+
+                                if(backgroundBrush != null)
+                                {
+                                    ControlModel.Style.BackgroundBrush = backgroundBrush;
+                                    NotifyPropertyChanged(nameof(BackgroundBrush));
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
             }
         }
     }
