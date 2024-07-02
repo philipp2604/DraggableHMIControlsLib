@@ -1,4 +1,5 @@
-﻿using DraggableHMIControlsLib.Models;
+﻿using DraggableHMIControlsLib.Models.Actions;
+using DraggableHMIControlsLib.Models.Controls;
 using DraggableHMIControlsLib.Services;
 using MvvmHelpers;
 using System;
@@ -16,25 +17,42 @@ public class HMIButtonViewModel : HMIControlViewModel
     private RelayCommand? _pressedCmd;
     private RelayCommand? _releasedCmd;
 
-    public HMIButtonViewModel(HMIButton model, IUITagService uITagService) : base(model, uITagService)
+    public HMIButtonViewModel(HMIButton model, IUITagService uiTagService, IUITimerService uiTimerService) : base(model, uiTagService, uiTimerService)
     {
-
+        Blinking(model.CurrentStyle.Blinking);
     }
 
     public string Text
     { 
-        get => ((HMIButton)ControlModel).Text;
+        get => ((HMIButton)_controlModel).Text;
         set
         {
-            if(value != ((HMIButton)ControlModel).Text)
+            if(value != ((HMIButton)_controlModel).Text)
             {
                 NotifyPropertyChanging(nameof(Text));
-                ((HMIButton)ControlModel).Text = value;
+                ((HMIButton)_controlModel).Text = value;
                 NotifyPropertyChanged(nameof(Text));
             }
         }
     }
 
+    public void RegisterAction(HMIButtonAction action)
+    {
+        ((HMIButton)_controlModel).Actions.Add(action);
+    }
+
+    public List<HMIButtonAction> GetActionsByTrigger(HMIButtonAction.ActionTrigger trigger)
+    {
+        List<HMIButtonAction> actions = new List<HMIButtonAction>();
+        
+        foreach(var action in ((HMIButton)_controlModel).Actions)
+        {
+            if(action.Trigger == trigger)
+                actions.Add(action);
+        }
+
+        return actions;
+    }
 
     public RelayCommand ClickedCmd { get => _clickedCmd ??= new RelayCommand(OnClicked); }
     public RelayCommand PressedCmd { get => _pressedCmd ??= new RelayCommand(OnPressed); }
@@ -42,7 +60,7 @@ public class HMIButtonViewModel : HMIControlViewModel
 
     public void OnClicked()
     {
-        foreach(var item in ((HMIButton)ControlModel).ClickedActions)
+        foreach(var item in GetActionsByTrigger(HMIButtonAction.ActionTrigger.MouseClicked))
         {
             ExecuteAction(item);
         }
@@ -50,7 +68,7 @@ public class HMIButtonViewModel : HMIControlViewModel
 
     public void OnPressed()
     {
-        foreach (var item in ((HMIButton)ControlModel).PressedActions)
+        foreach (var item in GetActionsByTrigger(HMIButtonAction.ActionTrigger.MousePressed))
         {
             ExecuteAction(item);
         }
@@ -58,7 +76,7 @@ public class HMIButtonViewModel : HMIControlViewModel
 
     public void OnReleased()
     {
-        foreach (var item in ((HMIButton)ControlModel).ReleasedActions)
+        foreach (var item in GetActionsByTrigger(HMIButtonAction.ActionTrigger.MouseReleased))
         {
             ExecuteAction(item);
         }

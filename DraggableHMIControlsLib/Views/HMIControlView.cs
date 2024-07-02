@@ -45,7 +45,7 @@ public abstract class HMIControlView : UserControl
         {
             viewModel.EditModeChange += (enable) => { EditMode(enable); };
 
-            viewModel.SaveUI += () => { viewModel.ControlModel.ParentMargin = GetParentMargin(); };
+            viewModel.SaveUI += () => { viewModel.ParentMargin = GetParentMargin(); };
         }
     }
 
@@ -55,7 +55,7 @@ public abstract class HMIControlView : UserControl
         if (!(DataContext.GetType().IsSubclassOf(typeof(HMIControlViewModel))) || (DataContext.GetType() == typeof(HMIControlViewModel))) return;
 
         setupEditMode();
-        SetParentMargin(((HMIControlViewModel)DataContext).ControlModel.ParentMargin);
+        SetParentMargin(((HMIControlViewModel)DataContext).ParentMargin);
     }
 
     public Thickness GetParentMargin()
