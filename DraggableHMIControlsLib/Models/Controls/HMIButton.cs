@@ -14,7 +14,7 @@ public class HMIButton : HMIControl
         Actions = new List<HMIButtonAction>();
 
         BaseStyle = buttonStyle ?? new HMIButtonStyle();
-        CurrentStyle = new HMIControlStyle(BaseStyle);
+        CurrentStyle = new HMIButtonStyle((HMIButtonStyle)BaseStyle);
     }
 
     public string Text { get; set; }

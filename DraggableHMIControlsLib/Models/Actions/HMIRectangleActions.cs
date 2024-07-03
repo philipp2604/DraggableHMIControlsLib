@@ -6,22 +6,16 @@ using System.Threading.Tasks;
 
 namespace DraggableHMIControlsLib.Models.Actions;
 
-public class HMIButtonAction : HMIControlAction
+public class HMIRectangleAction : HMIControlAction
 {
-    public HMIButtonAction(HMIButtonActionType action, HMIButtonActionTrigger trigger)
-    {
-        Type = (ActionType)action;
-        Trigger = (ActionTrigger)trigger;
-    }
-
-    public enum HMIButtonActionTrigger
+    public enum HMIRectangleActionTrigger
     {
         MouseClicked,
         MousePressed,
         MouseReleased
     }
 
-    public enum HMIButtonActionType
+    public enum HMIRectangleActionType
     {
         SetBit,
         SetBitInVariable,

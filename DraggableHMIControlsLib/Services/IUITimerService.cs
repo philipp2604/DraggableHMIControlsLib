@@ -9,6 +9,6 @@ namespace DraggableHMIControlsLib.Services
 {
     public interface IUITimerService
     {
-        public event ElapsedEventHandler TimerElapsed;
+        public event EventHandler TimerElapsed;
     }
 }

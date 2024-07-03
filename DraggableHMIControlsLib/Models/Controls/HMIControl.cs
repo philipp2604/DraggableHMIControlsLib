@@ -10,7 +10,7 @@ public abstract class HMIControl
     public HMIControl(string name)
     {
         Name = name;
-        BaseStyle = new HMIControlStyle(0, 0, new SolidColorBrush(), new SolidColorBrush(), new SolidColorBrush(), 0, 0, new FontFamily("Arial"), Visibility.Visible, false);
+        BaseStyle = new HMIControlStyle(0, 0, 0, Visibility.Visible, false);
         CurrentStyle = new HMIControlStyle(BaseStyle);
         StyleEvents = new List<ControlStyleEvent>();
     }

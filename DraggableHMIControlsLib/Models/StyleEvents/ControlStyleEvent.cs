@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace DraggableHMIControlsLib.Models.StyleEvents;
 
-public class ControlStyleEvent
+public partial class ControlStyleEvent
 {
 
     public ControlStyleEvent()
@@ -28,19 +28,4 @@ public class ControlStyleEvent
     {
         "ConditionalStyling"
     };
-
-
-    public class ConditionalStylingArgs
-    {
-        public double? Height { get; set; } = null;
-        public double? Width { get; set; } = null;
-        public Brush? ForegroundBrush { get; set; }
-        public Brush? BackgroundBrush { get; set; }
-        public Brush? BorderBrush { get; set; }
-        public double? CornerRadius { get; set; }
-        public double? FontSize { get; set; }
-        public FontFamily? FontFamily { get; set; }
-        public Visibility? Visibility { get; set; }
-        public bool? Blinking { get; set; }
-    }
 }

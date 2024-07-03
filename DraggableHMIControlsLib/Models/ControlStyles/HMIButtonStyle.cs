@@ -23,5 +23,24 @@ namespace DraggableHMIControlsLib.Models.ControlStyles
             Visibility = Visibility.Visible;
             Blinking = false;
         }
+
+        public HMIButtonStyle(HMIButtonStyle style)
+        {
+            Height = style.Height;
+            Width = style.Width;
+            ForegroundBrush = style.ForegroundBrush;
+            BackgroundBrush = style.BackgroundBrush;
+            BorderBrush = style.BorderBrush;
+            CornerRadius = style.CornerRadius;
+            FontSize = style.FontSize;
+            FontFamily = style.FontFamily;
+            Visibility = style.Visibility;
+            Blinking = style.Blinking;
+        }
+        public Brush ForegroundBrush { get; set; }
+        public Brush BackgroundBrush { get; set; }
+        public Brush BorderBrush { get; set; }
+        public double FontSize { get; set; }
+        public FontFamily FontFamily { get; set; }
     }
 }
