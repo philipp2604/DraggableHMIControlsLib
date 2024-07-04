@@ -6,5 +6,5 @@
              xmlns:local="clr-namespace:DraggableHMIControlsLib.Views"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="250">
-    <Rectangle x:Name="rectangle" Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding FillBrush}" Visibility="{Binding Visibility}" RadiusX="{Binding CornerRadius}" RadiusY="{Binding CornerRadius}"/>
+    <Rectangle x:Name="rectangle" Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding FillBrush}" Visibility="{Binding Visibility}" RadiusX="{Binding CornerRadius}" RadiusY="{Binding CornerRadius}" />
 </local:HMIControlView>

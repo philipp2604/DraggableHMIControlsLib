@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace DraggableHMIControlsLib.Models.Actions;
 
 public class HMIRectangleAction : HMIControlAction
 {
+    public HMIRectangleAction(HMIRectangleActionType action, HMIRectangleActionTrigger trigger)
+    {
+        Type = (ActionType)action;
+        Trigger = (ActionTrigger)trigger;
+    }
+
     public enum HMIRectangleActionTrigger
     {
         MouseClicked,

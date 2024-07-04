@@ -1,6 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Media;
-using DraggableHMIControlsLib.Models.Actions;
+﻿using DraggableHMIControlsLib.Models.Actions;
 using DraggableHMIControlsLib.Models.ControlStyles;
 
 namespace DraggableHMIControlsLib.Models.Controls;

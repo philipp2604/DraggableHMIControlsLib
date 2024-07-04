@@ -1,12 +1,5 @@
 ﻿using DraggableHMIControlsLib.Models.Actions;
 using DraggableHMIControlsLib.Models.ControlStyles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-
 namespace DraggableHMIControlsLib.Models.Controls;
 
 public class HMIRectangle : HMIControl

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Media;
 using DraggableHMIControlsLib.Models.ControlStyles;
 using DraggableHMIControlsLib.Models.StyleEvents;
 

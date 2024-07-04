@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DraggableHMIControlsLib.Models.Actions;
+﻿namespace DraggableHMIControlsLib.Models.Actions;
 
 public class HMIControlAction
 {
