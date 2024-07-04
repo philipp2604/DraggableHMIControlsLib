@@ -5,7 +5,6 @@ using DraggableHMIControlsLib.Models.StyleEvents;
 using DraggableHMIControlsLib.Services;
 using MvvmHelpers;
 using System.Windows;
-using System.Windows.Media;
 using static DraggableHMIControlsLib.Models.StyleEvents.ControlStyleEvent;
 
 namespace DraggableHMIControlsLib.ViewModels;

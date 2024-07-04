@@ -1,9 +1,4 @@
 ﻿using DraggableHMIControlsLib.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -38,7 +33,7 @@ public abstract class HMIControlView : UserControl
     private void DataContextChangedHandler(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (DataContext == null) return;
-        if (!(DataContext.GetType().IsSubclassOf(typeof(HMIControlViewModel))) || (DataContext.GetType() == typeof(HMIControlViewModel))) return;
+        if (!(DataContext.GetType().IsSubclassOf(typeof(HMIControlViewModel)) || (DataContext.GetType() == typeof(HMIControlViewModel)))) return;
 
         var viewModel = (HMIControlViewModel)DataContext;
         if (viewModel != null)

@@ -1,7 +1,4 @@
-﻿using System.Windows.Media;
-using System.Windows;
-
-namespace DraggableHMIControlsLib.Models.StyleEvents;
+﻿namespace DraggableHMIControlsLib.Models.StyleEvents;
 
 public partial class ControlStyleEvent
 {
